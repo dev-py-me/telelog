@@ -9,6 +9,10 @@ load_dotenv(find_dotenv(filename='.telelog'))
 TOKEN = environ['TELELOG_BOT_TOKEN']
 CHAT_ID = environ['TELELOG_CHAT_ID']
 
+if 'TELELOG_PROXY' in environ:
+    PROXY = environ['TELELOG_PROXY']
+    telepot.api.set_proxy(PROXY)
+
 
 class _TqdmIO:
     def __init__(self, show_last_update=True):
