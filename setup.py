@@ -14,8 +14,8 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='tg_tqdm',
-    version='0.0.2',
+    name='telelog',
+    version='0.1.2',
     description='Extension for tqdm progressbar in Telegram',
     license='MPLv2.0, MIT Licences',
     long_description=long_description,
@@ -36,7 +36,7 @@ setup(
     ],
     keywords='progressbar progressmeter progress bar meter'
              ' rate eta console terminal time telegram',
-    packages=['tg_tqdm'] + ['tg_tqdm.' + i for i in find_packages('tg_tqdm')],
+    packages=['telelog'] + ['telelog.' + i for i in find_packages('telelog')],
     install_requires=['tqdm', 'telepot'],
     project_urls={
         'Source': 'https://github.com/ermakovpetr/tg_tqdm/',
