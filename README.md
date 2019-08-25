@@ -1,5 +1,5 @@
-# tg_tqdm
-Extension for tqdm progressbar in Telegram
+# telelog
+Extension for tqdm progressbar and text logging in Telegram
 
 # Installation
 Now the project can not be found in PyPI
@@ -7,16 +7,28 @@ Now the project can not be found in PyPI
 But you can install from git:
 
 ```
-pip install git+https://github.com/ermakovpetr/tg_tqdm
+pip install git+https://github.com/pituganov/tg_tqdm
+```
+
+Before usage of lib you need to create `.telelog` file with bot token, chat id and proxy (optional).
+
+Example:
+```
+TELELOG_BOT_TOKEN=TELEGRAM_BOT_TOKEN
+TELELOG_CHAT_ID=CHAT_ID
+# optional
+TELELOG_PROXY=PROXY
 ```
 
 # Usage
 ```
 import time
-from tg_tqdm import tg_tqdm
+from telelog import tqdm, send_text
 
-for _ in tg_tqdm(range(1000), TELEGRAM_BOT_TOKEN, CHAT_ID):
+for _ in tqdm(range(1000)):
     time.sleep(0.1)
+
+send_text('Hello World')
 ```
 
 # Tips
