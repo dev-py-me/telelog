@@ -2,17 +2,22 @@ import telepot
 from os import environ
 from tqdm import tqdm as default_tqdm
 from datetime import datetime
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv(filename='.telelog'))
+
+TOKEN = environ['TELELOG_BOT_TOKEN']
+CHAT_ID = environ['TELELOG_CHAT_ID']
 
 
 class _TqdmIO:
-    def __init__(self, token, chat_id, show_last_update=True):
-        self.bot = telepot.Bot(token)
-        self.chat_id = chat_id
+    def __init__(self, show_last_update=True):
+        self.bot = telepot.Bot(TOKEN)
         self.prev_text = '<< Init tg_tqdm bar >>'
         self.text = self.prev_text
         self.show_last_update = show_last_update
         self.message = self.bot.sendMessage(
-            chat_id, self.text)
+            CHAT_ID, self.text)
 
     def write(self, s: str):
         new_text = s.strip().replace('\r', '')
@@ -29,12 +34,11 @@ class _TqdmIO:
 
 
 class _PlainTextIO:
-    def __init__(self, token, chat_id):
-        self.bot = telepot.Bot(token)
-        self.chat_id = chat_id
+    def __init__(self):
+        self.bot = telepot.Bot(TOKEN)
 
     def send_text(self, text: str) -> None:
-        self.message = self.bot.sendMessage(self.chat_id, text)
+        self.message = self.bot.sendMessage(CHAT_ID, text)
 
 
 def send_text(text: str) -> None:
