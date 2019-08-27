@@ -10,7 +10,7 @@ But you can install from git:
 pip install git+https://github.com/pituganov/telelog
 ```
 
-Before usage of lib you need to create `.telelog` file with bot token, chat id and proxy (optional).
+Before usage of lib you need ann environment variables with bot token, chat id and proxy (optional).
 
 Example:
 ```
