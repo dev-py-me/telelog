@@ -2,9 +2,6 @@ import telepot
 from os import environ
 from tqdm import tqdm as default_tqdm
 from datetime import datetime
-from dotenv import load_dotenv, find_dotenv
-
-load_dotenv(find_dotenv(filename='.telelog'))
 
 TOKEN = environ['TELELOG_BOT_TOKEN']
 CHAT_ID = environ['TELELOG_CHAT_ID']
